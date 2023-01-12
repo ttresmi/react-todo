@@ -7,11 +7,22 @@ import React from "react"
 //     );
 // }
 
-const Form =()=>{
+const Form =({inputText,setInputText,todos,setTods})=>{
+    const inputTextHandler=(e)=>{
+        setInputText(e.target.value);
+    }
+    const todoHandler=(e)=>{
+        e.preventDefault();
+        setTods([...todos,{text:inputText,completed:false,id:Math.random()}])
+        setInputText("");
+
+    }
     return(
         <form>
-            <input type="text"/>
-            <button type="submit">
+            <input 
+            value={inputText}
+            type="text" onChange={inputTextHandler}/>
+            <button type="submit" onClick={todoHandler}>
             <i className="fa fa-plus-square"></i>
             </button>
             <select>
@@ -21,6 +32,7 @@ const Form =()=>{
             </select>
 
         </form>
+       
     )
 }
 export default Form;
