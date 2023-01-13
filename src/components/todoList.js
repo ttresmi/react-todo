@@ -7,12 +7,12 @@ import Todos from "./Todos";
 //         </div>
 //     )
 // }
- const TodoList=({todos,setTods})=>{
+ const TodoList=({todos,setTods,filtteredTodos})=>{
     return(
         <div>
             <ul className="todo-list">
               { 
-            todos.map((e)=>(
+            filtteredTodos.map((e)=>(
                 <Todos text={e.text} each={e} todos={todos} setTods={setTods}/>
             ))
 
