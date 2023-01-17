@@ -11,20 +11,23 @@ function App() {
   useEffect(()=>{
     filterHandeler();
   },[status,todos])
+
   const filterHandeler=()=>{
     switch (status){
       case "c":
+        console.log("**********>>",todos)
         setFiltterdTodos(todos.filter((e=>e.completed)));
         break;
         case "uc":
-        setFiltterdTodos(todos.filter((e=>e.completed)));
+          console.log("**********>>",todos.completed)
+        setFiltterdTodos(todos.filter((e=>!e.completed)));
+        break;
         default:
           setFiltterdTodos(todos);
           break;
 
     }
   }
-
   return (
     <div className="App">
       <header>Todo App</header>
@@ -35,3 +38,4 @@ function App() {
 }
 
 export default App;
+// npm run deploy
